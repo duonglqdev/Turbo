@@ -1,0 +1,49 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `utilities` layer
+ *
+ * Add your own utility classes to this theme. Complex utility classes should
+ * be added using Tailwind’s plugin system:
+ *
+ * https://tailwindcss.com/docs/plugins#adding-utilities
+ */
+
+.the_content p{
+    margin-bottom: 22px;
+}
+
+.wp-block-image .aligncenter > figcaption,
+.wp-block-image .alignleft > figcaption,
+.wp-block-image .alignright > figcaption,
+.wp-block-image.is-resized > figcaption {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: white;
+        transition: transform 0.3s ease;
+        width: 100%;
+        transform: translateX(-100%);
+    }
+    
+    #sidebar.active {
+      transform: translateX(0);
+    }
+  
+    #toggleBtn {
+      display: block;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    #toggleBtn {
+      display: none;
+    }
+  
+    #closeBtn {
+      display: none;
+    }
+  }
