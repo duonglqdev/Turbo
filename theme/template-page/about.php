@@ -299,7 +299,7 @@ get_header();
     </div>
 </div>
 
-<?php get_template_part('components/nav-menu') ?>
+
 
 <?php
 get_footer();

@@ -20,85 +20,49 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('font-body text-body font-normal'); ?>>
 
 	<?php wp_body_open(); ?>
 
 	<header id="navbar"
-		class="sticky flex items-center top-0 z-30 w-full inset-x-0 transition-all duration-500 py-4 bg-transparent xl:py-0 h-[60px] md:h-[70px] lg:h-[80px] 2xl:h-[90px]">
+		class="sticky flex items-center top-0 z-30 w-full inset-x-0 transition-all duration-500 py-4 bg-transparent h-fit xl:py-0 2xl:h-fit">
 		<div class="mx-auto w-full px-4 lg:container lg:px-6 3xl:px-4 flex items-center justify-between gap-4">
 
-			<a class="flex shrink-0 lg:me-8 w-16 md:w-20 xl:w-auto" href="/">
-				<noscript><img alt="logo" src="https://turbo.redq.io/wp-content/uploads/2023/07/logo.svg" width="88"
-						height="36" decoding="async" data-nimg="1" style="color: transparent;"
-						class="main-logo isScrolling:hidden"></noscript><img alt="logo"
-					src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2088%2036%22%3E%3C/svg%3E"
-					data-src="https://turbo.redq.io/wp-content/uploads/2023/07/logo.svg" width="88" height="36"
-					decoding="async" data-nimg="1" style="color: transparent;"
-					class="lazyload main-logo isScrolling:hidden">
-				<noscript><img alt="logo" src="https://turbo.redq.io/wp-content/uploads/2023/07/logo.svg" width="88"
-						height="36" decoding="async" data-nimg="1" style="color: transparent;"
-						class="sticky-logo hidden isScrolling:block"></noscript><img alt="logo"
-					src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2088%2036%22%3E%3C/svg%3E"
-					data-src="https://turbo.redq.io/wp-content/uploads/2023/07/logo.svg" width="88" height="36"
-					decoding="async" data-nimg="1" style="color: transparent;"
-					class="lazyload sticky-logo hidden isScrolling:block">
-			</a>
+			<?php
+			$custom_logo_id = get_theme_mod('custom_logo');
+			$image = wp_get_attachment_image_src($custom_logo_id, 'full');
+
+			if ($image) {
+				$site_url = get_bloginfo('url');
+				$site_description = get_bloginfo('description');
+				$logo_url = $image[0];
+				?>
+				<a href="<?php echo esc_url($site_url); ?>" title="<?php echo esc_attr($site_description); ?>"
+					class="flex shrink-0 lg:me-8 w-16 md:w-20 xl:w-auto">
+					<img src="<?php echo esc_url($logo_url); ?>" alt="Logo"
+						class="main-logo isScrolling:hidden w-[88px] h-9 text-transparent">
+				</a>
+				<?php
+			}
+			?>
+
 			<div class="header-right">
 				<div class="ml-auto xl:flex items-center gap-4 hidden justify-end shrink-0 header-navigation-menu">
 					<div class="menu-turbo-menu-container">
-						<ul id="menu-turbo-menu" class="menu">
-							<li
-								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children">
-								<a href="/home">Trang chủ</a><span class="menu-drop-down-selector" title="open">
-									<svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path
-											d="M4.99997 5.85018C4.82075 5.85018 4.64155 5.78175 4.50492 5.64518L0.205141 1.34536C-0.0683805 1.07184 -0.0683805 0.628372 0.205141 0.354961C0.478553 0.0815496 0.921933 0.0815496 1.19548 0.354961L4.99997 4.15968L8.80449 0.355094C9.07801 0.0816825 9.52135 0.0816825 9.79474 0.355094C10.0684 0.628505 10.0684 1.07197 9.79474 1.34549L5.49503 5.64531C5.35832 5.78191 5.17913 5.85018 4.99997 5.85018Z"
-											fill="currentColor"></path>
-									</svg>
-								</span>
-								<!-- <ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2491 current_page_item">
-										<a href="https://turbo.redq.io/premium/">Home Premium</a>
-									</li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-											href="https://turbo.redq.io/luxury/">Home Luxury</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-											href="https://turbo.redq.io/vintage/">Home Vintage</a></li>
-								</ul> -->
-							</li>
-							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
-								<a href="/car-listing">Danh sách xe hơi</a><span class="menu-drop-down-selector"
-									title="open">
-									<svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path
-											d="M4.99997 5.85018C4.82075 5.85018 4.64155 5.78175 4.50492 5.64518L0.205141 1.34536C-0.0683805 1.07184 -0.0683805 0.628372 0.205141 0.354961C0.478553 0.0815496 0.921933 0.0815496 1.19548 0.354961L4.99997 4.15968L8.80449 0.355094C9.07801 0.0816825 9.52135 0.0816825 9.79474 0.355094C10.0684 0.628505 10.0684 1.07197 9.79474 1.34549L5.49503 5.64531C5.35832 5.78191 5.17913 5.85018 4.99997 5.85018Z"
-											fill="currentColor"></path>
-									</svg>
-								</span>
-								<!-- <ul class="sub-menu">
-									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-											href="https://turbo.redq.io/listing-with-map/">Listing with Map</a></li>
-								</ul> -->
-							</li>
-							<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">Giới
-									thiệu</a></li>
-							<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/news">Tin
-									tức</a></li>
-							<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/faq">Faq</a>
-							</li>
-							<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Liên
-									hệ</a></li>
+						<ul id="menu-turbo-menu" class="the_menu">
+							<?php
+							wp_nav_menu(array(
+								'theme_location' => 'menu-1',
+								'container' => false,
+								'fallback_cb' => false,
+								'items_wrap' => '%3$s',
+								'depth' => 2,
+
+							));
+							?>
 						</ul>
 					</div>
 				</div>
-
-
-				<script defer=""
-					src="data:text/javascript;base64,CiAgICBqUXVlcnkoZG9jdW1lbnQpLnJlYWR5KGZ1bmN0aW9uKCQpIHsKICAgICAgICBmdW5jdGlvbiBpc0VsZW1lbnRvcldpZGdldEV4aXN0KCkgewogICAgICAgICAgICB2YXIgd2lkZ2V0RWxlbWVudCA9ICQoJy5pbnNwZWN0LWhvbWUtc2VhcmNoLWZvcm0nKTsKICAgICAgICAgICAgaWYgKHdpZGdldEVsZW1lbnQubGVuZ3RoID4gMCkgewogICAgICAgICAgICAgICAgJCgnI2hlYWRlci1zZWFyY2gtaWNvbicpLmFkZENsYXNzKCdoaWRkZW4nKTsKICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICQoJyNoZWFkZXItc2VhcmNoLWljb24nKS5yZW1vdmVDbGFzcygnaGlkZGVuJyk7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgdmFyIHdpZGdldEV4aXN0cyA9IGlzRWxlbWVudG9yV2lkZ2V0RXhpc3QoKTsKICAgIH0pOwo="></script>
 
 
 				<aside class="turbo-drawer-root turbo-drawer-navigation self-center z-[99]">
@@ -109,10 +73,11 @@
 
 
 							<a class="flex shrink-0" href="https://turbo.redq.io/">
-								<noscript><img alt="logo"
-										src="https://turbo.redq.io/wp-content/uploads/2023/08/logo.png" width="88"
-										height="22" decoding="async" data-nimg="1"
-										style="color: transparent;"></noscript><img class="lazyload" alt="logo"
+								<noscript>
+									<img alt="logo" src="https://turbo.redq.io/wp-content/uploads/2023/08/logo.png"
+										width="88" height="22" decoding="async" data-nimg="1"
+										style="color: transparent;"></noscript>
+								<img class="lazyload" alt="logo"
 									src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2088%2022%22%3E%3C/svg%3E"
 									data-src="https://turbo.redq.io/wp-content/uploads/2023/08/logo.png" width="88"
 									height="22" decoding="async" data-nimg="1" style="color: transparent;">

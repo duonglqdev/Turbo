@@ -453,7 +453,7 @@ get_header();
 
 </section>
 
-<?php get_template_part('components/nav-menu') ?>
+
 
 
 <?php

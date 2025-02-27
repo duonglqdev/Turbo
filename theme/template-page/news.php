@@ -283,7 +283,7 @@ get_header();
 </main>
 
 
-<?php get_template_part('components/nav-menu') ?>
+
 
 
 

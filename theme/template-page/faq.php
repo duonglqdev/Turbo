@@ -41,118 +41,33 @@ get_header();
                             </div>
 
                             <div class="faq_wrapper accordion-wrapper mx-auto">
-                                <div class="group relative accordion-item shadow-faq rounded-md mb-3 py-[30px] px-5"
-                                    style="">
-                                    <div data-id="1"
-                                        class="content-btn text-sm xs:text-base font-semibold leading-5 uppercase cursor-pointer font-body text-brand px-5 lg:px-7 flex justify-between items-start gap-6 group">
-                                        <span class="flex items-start">
-                                            Why must I make payment immediately at checkout?
-                                        </span>
-                                        <span class="accordion-icon group-[&amp;.active]:hidden">
-                                            <i aria-hidden="true" class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="accordion-icon hidden group-[&amp;.active]:inline-block -mt-1">
-                                            <i aria-hidden="true" class="fas fa-window-minimize"></i>
-                                        </span>
+                                <?php
+                                for ($i = 0; $i < 5; $i++) {
+                                    ?>
+                                    <div class="group content_card relative accordion-item shadow-faq rounded-md mb-3 py-[30px] px-5"
+                                        style="">
+                                        <h2
+                                            class="accordion_title accordion-toggle text-sm xs:text-base font-semibold leading-5 uppercase cursor-pointer font-body text-brand px-5 lg:px-7 flex justify-between items-start gap-6 group">
+                                            <span class="flex items-start">
+                                                Why must I make payment immediately at checkout? </span>
+                                            <span class="accordion-icon group-[&.active]:hidden">
+                                                <i aria-hidden="true"><?php echo svg('plus', '25', '25') ?></i>
+                                            </span>
+                                            <span class="accordion-icon hidden group-[&.active]:inline-block -mt-1">
+                                                <i aria-hidden="true"><?php echo svg('dash', '25', '25') ?></i>
+                                            </span>
+                                        </h2>
+                                        <div class="accordion-body mt-4 hidden ps-16 px-10 py-4">
+                                            <p class="accordion_content mb-0 text-[15px] leading-7 text-light-text">
+                                                Sample ordering is on ‘first-come-first-served’
+                                                basis. To ensure that you get your desired samples,
+                                                it is recommended that you make your payment within
+                                                60 minutes of checking out.</p>
+                                        </div>
                                     </div>
-                                    <div id="content1" class="accordion-body mt-4 ps-16 px-10 py-4">
-                                        <p class="accordion_content mb-0 text-[15px] leading-7 text-light-text">
-                                            Sample ordering is on ‘first-come-first-served’
-                                            basis. To ensure that you get your desired samples,
-                                            it is recommended that you make your payment within
-                                            60 minutes of checking out.</p>
-                                    </div>
-                                </div>
-                                <div class="group content_card relative accordion-item shadow-faq rounded-md mb-3 py-[30px] px-5"
-                                    style="">
-                                    <h2
-                                        class="accordion_title accordion-toggle text-sm xs:text-base font-semibold leading-5 uppercase cursor-pointer font-body text-brand px-5 lg:px-7 flex justify-between items-start gap-6 group">
-                                        <span class="flex items-start">
-                                            Is your website secure? </span>
-                                        <span class="accordion-icon group-[&amp;.active]:hidden">
-                                            <i aria-hidden="true" class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="accordion-icon hidden group-[&amp;.active]:inline-block -mt-1">
-                                            <i aria-hidden="true" class="fas fa-window-minimize"></i>
-                                        </span>
-                                    </h2>
-                                    <div class="accordion-body mt-4 hidden ps-16 px-10 py-4">
-                                        <p class="accordion_content mb-0 text-[15px] leading-7 text-light-text">
-                                            Yep! On any page where we ask you to enter your
-                                            address, phone number, or credit card information,
-                                            we use secure socket layer (SSL) to encrypt the
-                                            communication.</p>
-                                    </div>
-                                </div>
-                                <div class="group content_card relative accordion-item shadow-faq rounded-md mb-3 py-[30px] px-5"
-                                    style="">
-                                    <h2
-                                        class="accordion_title accordion-toggle text-sm xs:text-base font-semibold leading-5 uppercase cursor-pointer font-body text-brand px-5 lg:px-7 flex justify-between items-start gap-6 group">
-                                        <span class="flex items-start">
-                                            When will my order ship? </span>
-                                        <span class="accordion-icon group-[&amp;.active]:hidden">
-                                            <i aria-hidden="true" class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="accordion-icon hidden group-[&amp;.active]:inline-block -mt-1">
-                                            <i aria-hidden="true" class="fas fa-window-minimize"></i>
-                                        </span>
-                                    </h2>
-                                    <div class="accordion-body mt-4 hidden ps-16 px-10 py-4" style="display: none;">
-                                        <p class="accordion_content mb-0 text-[15px] leading-7 text-light-text">
-                                            After your payment is verified, it takes up to 24
-                                            hours to process and ship your order. This does not
-                                            include weekends or holidays. Purchases made after
-                                            11 am PST will not be shipped out until the next
-                                            business day. If you order after 11 am PST on a
-                                            Friday, your order will likely be shipped out on the
-                                            following Monday.</p>
-                                    </div>
-                                </div>
-                                <div class="group  content_card relative accordion-item shadow-faq rounded-md mb-3 py-[30px] px-5"
-                                    style="">
-                                    <h2
-                                        class="accordion_title accordion-toggle text-sm xs:text-base font-semibold leading-5 uppercase cursor-pointer font-body text-brand px-5 lg:px-7 flex justify-between items-start gap-6 group">
-                                        <span class="flex items-start">
-                                            How do I make payments using paypal? How does it
-                                            work? </span>
-                                        <span class="accordion-icon group-[&amp;.active]:hidden">
-                                            <i aria-hidden="true" class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="accordion-icon hidden group-[&amp;.active]:inline-block -mt-1">
-                                            <i aria-hidden="true" class="fas fa-window-minimize"></i>
-                                        </span>
-                                    </h2>
-                                    <div class="accordion-body mt-4 hidden ps-16 px-10 py-4">
-                                        <p class="accordion_content mb-0 text-[15px] leading-7 text-light-text">
-                                            Paypal is the easiest way to make payments online.
-                                            While checking out your order, you will be
-                                            redirected to the Paypal website. Be sure to fill in
-                                            correct details for fast &amp; hassle-free payment
-                                            processing. After a successful Paypal payment, a
-                                            payment advice will be automatically generated to
-                                            cartsy.redq.io system for your order.</p>
-                                    </div>
-                                </div>
-                                <div class="group  content_card relative accordion-item shadow-faq rounded-md mb-3 py-[30px] px-5"
-                                    style="">
-                                    <h2
-                                        class="accordion_title accordion-toggle text-sm xs:text-base font-semibold leading-5 uppercase cursor-pointer font-body text-brand px-5 lg:px-7 flex justify-between items-start gap-6 group">
-                                        <span class="flex items-start">
-                                            How much do deliveries cost? </span>
-                                        <span class="accordion-icon group-[&amp;.active]:hidden">
-                                            <i aria-hidden="true" class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="accordion-icon hidden group-[&amp;.active]:inline-block -mt-1">
-                                            <i aria-hidden="true" class="fas fa-window-minimize"></i>
-                                        </span>
-                                    </h2>
-                                    <div class="accordion-body mt-4 hidden ps-16 px-10 py-4">
-                                        <p class="accordion_content mb-0 text-[15px] leading-7 text-light-text">
-                                            There is a 5$ delivery fee if the order value is 50$
-                                            or more. If the order value is less than 50$, we
-                                            charge BDT 10$ delivery fee. </p>
-                                    </div>
-                                </div>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -166,7 +81,7 @@ get_header();
     </div>
 </main>
 
-<?php get_template_part('components/nav-menu') ?>
+
 
 <?php
 get_footer();

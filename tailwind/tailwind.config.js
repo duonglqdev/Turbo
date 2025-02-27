@@ -19,7 +19,7 @@ module.exports = {
 				secondary: '#4b5563',
 			},
 			fontFamily: {
-				body: ['SVN-Poppins', 'sans-serif'],
+				body: ['Kanit', 'sans-serif'],
 			},
 			boxShadow: {
 				base: '0px 2px 8px 0px rgba(17, 24, 39, 0.06)',

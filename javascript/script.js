@@ -7,11 +7,7 @@
 				backToTop();
 				toggleContent();
 				handleNavbarScroll();
-
-				$('.content-btn').click(function () {
-					let id = $(this).data('id');
-					openContent(id);
-				});
+				openContent();
 			});
 		};
 		function menuMobile() {
@@ -81,29 +77,18 @@
 			});
 		}
 
-		function openContent(id) {
-			const contents = document.querySelectorAll('[id^="content"]');
-			contents.forEach((content) => {
-				if (content.id !== `content${id}`) {
-					content.classList.add('hidden');
-				}
-			});
-			document.getElementById(`content${id}`).classList.toggle('hidden');
-		}
-
 		//Open sidebar on mobile screen
-		const toggleBtn = document.getElementById('toggleBtn');
-		const closeBtn = document.getElementById('closeBtn');
-		const sidebar = document.getElementById('sidebar');
+		// const toggleBtn = document.getElementById('toggleBtn');
+		// const closeBtn = document.getElementById('closeBtn');
+		// const sidebar = document.getElementById('sidebar');
 
-		// Chỉ bật/tắt sidebar khi màn hình nhỏ
-		toggleBtn.addEventListener('click', () => {
-			sidebar.classList.add('active');
-		});
+		// toggleBtn.addEventListener('click', () => {
+		// 	sidebar.classList.add('active');
+		// });
 
-		closeBtn.addEventListener('click', () => {
-			sidebar.classList.remove('active');
-		});
+		// closeBtn.addEventListener('click', () => {
+		// 	sidebar.classList.remove('active');
+		// });
 
 		//Navbar header
 		function handleNavbarScroll() {
@@ -113,14 +98,36 @@
 			window.addEventListener('scroll', function () {
 				if (window.scrollY > 100) {
 					navbar.classList.remove('bg-transparent');
-					navbar.classList.add('bg-white', 'shadow-sm');
+					navbar.classList.add('bg-white', 'shadow-md');
 					console.log('style added');
 				} else {
-					navbar.classList.remove('bg-white', 'shadow-sm');
+					navbar.classList.remove('bg-white', 'shadow-md');
 					navbar.classList.add('bg-transparent');
 					console.log('style removed');
 				}
 			});
 		}
+
+		function openContent() {
+			$(this).parent().toggleClass('active');
+			$(this).toggleClass('active');
+			$(this).siblings('.accordion-body').slideToggle();
+		}
+
+		$('.accordion-toggle').on('click', openContent);
+
+		var $searchInput = $('#faq_search');
+		$searchInput.on('input', function () {
+			var searchQuery = $(this).val().toLowerCase();
+			$('.content_card').each(function () {
+				var $faqTitle = $(this).find('.accordion_title');
+				var faqTitleText = $faqTitle.text().toLowerCase();
+				if (faqTitleText.indexOf(searchQuery) !== -1) {
+					$(this).show();
+				} else {
+					$(this).hide();
+				}
+			});
+		});
 	})(jQuery);
 })();
