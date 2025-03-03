@@ -46,6 +46,51 @@
 			}
 			?>
 
+			<section class="inspect-quick-search-wrapper">
+				<!-- search overlay  -->
+				<div class="inspect-quick-search-overlay"></div>
+				<!-- search form  -->
+				<div class="inspect-quick-search-form">
+					<span class="inspect-search-icon">
+						<svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd"
+								d="M11.3851 12.4457C8.73488 14.5684 4.85544 14.4013 2.39866 11.9445C-0.237379 9.3085 -0.237379 5.03464 2.39866 2.3986C5.0347 -0.23744 9.30856 -0.23744 11.9446 2.3986C14.4014 4.85538 14.5685 8.73481 12.4458 11.3851L17.6014 16.5407C17.8943 16.8336 17.8943 17.3085 17.6014 17.6014C17.3085 17.8943 16.8337 17.8943 16.5408 17.6014L11.3851 12.4457ZM3.45932 10.8839C1.40907 8.83363 1.40907 5.50951 3.45932 3.45926C5.50957 1.40901 8.83369 1.40901 10.8839 3.45926C12.9327 5.50801 12.9342 8.82875 10.8885 10.8794C10.8869 10.8809 10.8854 10.8823 10.8839 10.8839C10.8824 10.8854 10.8809 10.8869 10.8794 10.8884C8.82882 12.9341 5.50807 12.9326 3.45932 10.8839Z"
+								fill="currentColor"></path>
+						</svg>
+					</span>
+					<input type="search" placeholder="Search..." class="inspect-quick-search-input bg-white" value="">
+					<input type="hidden" name="inspect_quick_num_product" value="3">
+					<input type="hidden" name="product_type" value="rental">
+				</div>
+				<!-- search results  -->
+				<div class="inspect-quick-search-result-wrapper">
+					<!-- search results header  -->
+					<div class="inspect-quick-search-result-header">
+						<p class="inspect-without-search-query"><b></b> <span>Search Result</span></p>
+						<p class="inspect-quick-search-result-count"><span>0</span> <span>Items Found</span></p>
+					</div>
+					<!-- search results  -->
+					<div class="quick-search-results" id="quick-search-results"></div>
+					<!-- search loader  -->
+					<div class="inspect-quick-search-loader">
+						<span class="dot-1"></span>
+						<span class="dot-2"></span>
+						<span class="dot-3"></span>
+					</div>
+					<!-- not found image and text -->
+					<div id="inspectQuickSearchNotFound" class="inspect-empty-product rq-hide">
+						<div class="inspect-empty-image-container">
+							<img width="198" height="198"
+								src="https://turbo.redq.io/wp-content/uploads/2023/07/not-found.png" alt="empty">
+						</div>
+						<div class="inspect-empty-content-container">
+							<p class="inspect-empty-title">No result found</p>
+							<p class="inspect-empty-content">Sorry, nothing matched your search terms</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<div class="header-right">
 				<div class="ml-auto xl:flex items-center gap-4 hidden justify-end shrink-0 header-navigation-menu">
 					<div class="menu-turbo-menu-container">
@@ -173,6 +218,14 @@
 					</div>
 					<!-- end of .turbo-drawer-overlay -->
 				</aside>
+				<button id="header-search-icon"
+					class="text-xl inline-block md:hidden p-3 rounded-full hover:shadow-button transition-all hover:-translate-y-0.5 text-inherit">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+						stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
+					</svg>
+				</button>
 			</div>
 		</div>
 	</header>

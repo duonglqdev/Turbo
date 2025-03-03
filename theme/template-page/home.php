@@ -27,7 +27,7 @@ get_header();
                                 class="mb-1 uppercase text-primary text-base font-medium leading-[26px] mt-0 text-start max-sm:text-sm">
                                 Bạn đến từ đâu</h2>
                             <div class="checkbox-group flex flex-col">
-                                <select class="h-11 border rounded-md px-5" name="tex_pickup_location">
+                                <select class="h-11 border rounded-md px-5 bg-white" name="tex_pickup_location">
                                     <option selected="" value="">Chọn địa điểm</option>
                                     <option value="chicago-il">Chicago, IL</option>
                                     <option value="los-angeles-ca">Los Angeles, CA</option>
@@ -57,7 +57,7 @@ get_header();
                                 class="mb-1 uppercase text-primary text-base font-medium leading-[26px] mt-0 text-start max-sm:text-sm">
                                 Bạn đi đâu</h2>
                             <div class="checkbox-group flex flex-col">
-                                <select class="h-11 border rounded-md px-5" name="tex_return_location">
+                                <select class="h-11 border rounded-md px-5 bg-white" name="tex_return_location">
                                     <option selected="" value="">Chọn địa điểm</option>
                                     <option value="chicago-il">Chicago, IL</option>
                                     <option value="los-angeles-ca">Los Angeles, CA</option>

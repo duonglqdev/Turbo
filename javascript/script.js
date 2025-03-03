@@ -8,6 +8,7 @@
 				toggleContent();
 				handleNavbarScroll();
 				openContent();
+				initUIHandlers();
 			});
 		};
 		function menuMobile() {
@@ -129,5 +130,84 @@
 				}
 			});
 		});
+
+		function initUIHandlers() {
+			function useFreezeBodyScroll(freezeState) {
+				if (typeof freezeState !== 'boolean') {
+					console.error(
+						'useFreezeBodyScroll param should be a boolean type value.'
+					);
+					return false;
+				}
+				var scrollbarWidth = getBodyScrollbarWidth();
+				var html = $('html');
+				var wpadminbar = $('#wpadminbar');
+				var demoSwitcherBtnWrapper = $('#demo-switch-btn-wrapper');
+
+				if (freezeState) {
+					html.addClass('overflow-hidden');
+					html.css('padding-right', `${scrollbarWidth}px`);
+					wpadminbar.css('padding-right', `${scrollbarWidth}px`);
+					if (demoSwitcherBtnWrapper.length) {
+						demoSwitcherBtnWrapper.css('display', 'none');
+					}
+				} else {
+					html.removeClass('overflow-hidden');
+					html.css('padding-right', '0px');
+					wpadminbar.css('padding-right', '0px');
+					if (demoSwitcherBtnWrapper.length) {
+						demoSwitcherBtnWrapper.css('display', 'block');
+					}
+				}
+			}
+
+			function getBodyScrollbarWidth() {
+				const outer = document.createElement('div');
+				outer.style.visibility = 'hidden';
+				outer.style.overflow = 'scroll';
+				outer.style.msOverflowStyle = 'scrollbar';
+				document.body.appendChild(outer);
+				const inner = document.createElement('div');
+				outer.appendChild(inner);
+				const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+				outer.parentNode.removeChild(outer);
+				return scrollbarWidth;
+			}
+
+			// Sự kiện click cho tìm kiếm
+			$('#header-search-icon').click(function () {
+				$('.inspect-quick-search-wrapper').addClass('mobile-view');
+				$('.inspect-quick-search-overlay').addClass('is-active');
+				$('.inspect-quick-search-form').addClass('is-active');
+				$('.inspect-quick-search-result-wrapper').addClass('is-active');
+			});
+
+			$('.inspect-quick-search-overlay').click(function () {
+				$('.inspect-quick-search-wrapper').removeClass('mobile-view');
+				$('.inspect-quick-search-overlay').removeClass('is-active');
+				$('.inspect-quick-search-form').removeClass('is-active');
+				$('.inspect-quick-search-result-wrapper').removeClass(
+					'is-active'
+				);
+			});
+
+			// Drawer mở
+			$('.medium-drawer-handler').click(function () {
+				$('.medium-drawer-content').removeClass('translate-x-full');
+				useFreezeBodyScroll(true);
+				$('.medium-drawer-overlay').removeClass(
+					'opacity-0 invisible pointer-events-none'
+				);
+			});
+
+			// Drawer đóng
+			$('#drawer_close_btn, .medium-drawer-overlay').click(function () {
+				$('.medium-drawer-content').addClass('translate-x-full');
+				useFreezeBodyScroll(false);
+				$('.medium-drawer-overlay').addClass(
+					'opacity-0 invisible pointer-events-none'
+				);
+			});
+		}
 	})(jQuery);
 })();
